@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const CountryErrorBoundry = () => {
+const ErrorBoundary = () => {
   return (
     <div className="dark:text-light-white text-light-dark-grey flex flex-col gap-2">
       Something went wrong
@@ -14,4 +14,4 @@ const CountryErrorBoundry = () => {
   );
 };
 
-export default CountryErrorBoundry;
+export default ErrorBoundary;

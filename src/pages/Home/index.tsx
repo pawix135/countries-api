@@ -28,7 +28,7 @@ const Home = () => {
 
   let debounceSearch = useDebounce(searchInput, 1000);
 
-  const [pending, startTransition] = useTransition();
+  const [_pending, startTransition] = useTransition();
 
   const changeFilter = useCallback(
     (value: Regions | "") => {
@@ -51,10 +51,6 @@ const Home = () => {
       country.region.toLocaleLowerCase().includes(filter.toLocaleLowerCase())
     );
   }, [debounceSearch, filter]);
-
-  // let itemsCount = useMemo(() => {
-  //   return searchedFilteredCountries.length;
-  // }, [searchedFilteredCountries]);
 
   useEffect(() => {
     console.log(filter);

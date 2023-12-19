@@ -5,7 +5,7 @@ import "./index.css";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { getCountries, getCountry } from "./utils/fetcher.ts";
 import Country from "./pages/Country/index.tsx";
-import CountryErrorBoundry from "./pages/Country/CountryErrorBoundry.tsx";
+import ErrorBoundary from "./components/errors/Error.tsx";
 import Home from "./pages/Home/index.tsx";
 
 let router = createBrowserRouter(
@@ -17,17 +17,16 @@ let router = createBrowserRouter(
         {
           index: true,
           element: <Home />,
+          errorElement: <ErrorBoundary />,
           loader: async () => {
             let countries = await getCountries();
-            console.log(countries);
-
             return countries;
           },
         },
         {
           path: "/country/:id",
           element: <Country />,
-          errorElement: <CountryErrorBoundry />,
+          errorElement: <ErrorBoundary />,
           loader: async ({ params }) => {
             let country = await getCountry(params.id as string);
             return country;
