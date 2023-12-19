@@ -5,5 +5,12 @@
 @layer base {
   body {
     font-family: "Nunito Sans", sans-serif;
+    @apply dark:bg-dark-very-dark-blue bg-light-very-light-grey;
+  }
+}
+
+@layer components {
+  .list {
+    @apply grid grid-flow-row grid-cols-1 md:grid-flow-row md:grid-cols-4 md:grid-rows-1 gap-10;
   }
 }
